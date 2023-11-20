@@ -28,7 +28,7 @@ made adaptations to several aspects of our reinforcement learning code
 
 
   
-<img src="DDPG_reward_figure" width="200" height="200">
+<img src="\Resurt-Presentation\DDPG_reward_figure" width="200" height="200">
 
 ![DDPG_reward_figure](https://github.com/920710619/Ball-Juggling-Project/assets/67464174/bcc1c29d-189b-4bf0-a816-33661c4841b6)
 
