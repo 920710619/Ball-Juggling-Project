@@ -17,7 +17,7 @@ As depicted in Figure, the robotic arm comprises of three degrees of freedom (DO
 <img src="Resurt-Presentation\Parameters.png" width="600">
 We are utilizing the DDPG algorithm, and the specific parameters are shown in the table.
 
-###Optimizaiton
+### Optimizaiton
 
 Despite implementing the DDPG algorithm as described above, our reinforcement learning agent was found to perform poorly in the ball juggling task and often failed to converge. We believe that the reason for this poor performance is that the ball juggling task, as a specific problem, possesses certain unique characteristics that make it is difficult to achieve 
 good results by simply using a generic reinforcement learning algorithm.
