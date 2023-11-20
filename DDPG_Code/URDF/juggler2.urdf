@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+
+<robot name="test_robot">  
+  <link name="base_link">  
+    <visual>  
+       <geometry>  
+          <cylinder length="0.2" radius="0.3"/>
+       </geometry>  
+       <origin rpy="0 0 0" xyz="0 0 0"/>  
+       <material name="yellow">
+          <color rgba="1.0 1.0 0 1"/>
+       </material>
+    </visual>  
+    <inertial>
+      <mass value="10000"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <collision>
+        <geometry>  
+          <cylinder length="0.2" radius="0.3"/>
+        </geometry> 
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </collision>
+  </link>  
+
+  <link name="rotate_pole">
+    <visual>
+      <geometry>
+        <cylinder length="0.5" radius="0.1"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+    </visual>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <collision>
+      <geometry>  
+        <cylinder length="0.5" radius="0.1"/>
+      </geometry> 
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </collision>
+  </link>
+
+  <joint name="rotate_joint" type="continuous">
+    <axis xyz="0.0 0.0 1.0"/>
+    <parent link="base_link"/>  
+    <child link="rotate_pole"/>  
+    <origin xyz="0 0 0.3" rpy="0 0.0 0"/>
+  </joint>
+
+
+  <link name="rotate_part1">
+    <visual>
+      <geometry>
+        <cylinder length="0.15" radius="0.1"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 1.57 0.0"/> 
+    </visual>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <collision>
+      <geometry>  
+        <cylinder length="0.15" radius="0.1"/>
+      </geometry> 
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 1.57 0.0"/>
+    </collision>
+  </link>
+
+  <joint name="rotate_joint1" type="revolute">
+    <axis xyz="1 0.0 0.0"/>
+    <parent link="rotate_pole"/>  
+    <child link="rotate_part1"/>  
+    <origin xyz="0 0 0.2" rpy="0 0.0 0"/>
+    <limit lower="-0.5." upper="0.5"/>
+  </joint>
+
+  <link name="pole1">
+    <visual>
+      <geometry>
+        <cylinder length="0.3" radius="0.1"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+    </visual>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <collision>
+      <geometry>  
+        <cylinder length="0.3" radius="0.1"/>
+      </geometry> 
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </collision>
+  </link>
+
+  <joint name="fixed_joint1" type="fixed">  
+    <parent link="rotate_part1"/>  
+    <child link="pole1"/>  
+    <origin xyz="0 0 0.15" rpy="0.0 0.0 0"/>
+ </joint>  
+
+  <link name="rotate_part2">
+    <visual>
+      <geometry>
+        <cylinder length="0.15" radius="0.1"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 1.57 0.0"/> 
+    </visual>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <collision>
+      <geometry>  
+        <cylinder length="0.15" radius="0.1"/>
+      </geometry> 
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 1.57 0.0"/>
+    </collision>
+  </link>
+
+  <joint name="rotate_joint2" type="revolute">
+    <axis xyz="1 0.0 0.0"/>
+    <parent link="pole1"/>  
+    <child link="rotate_part2"/>  
+    <origin xyz="0 0 0.15" rpy="0 0.0 0"/>
+    <limit lower="-0.5" upper="0.5"/>
+  </joint>
+
+  <link name="pole2">
+    <visual>
+      <geometry>
+        <cylinder length="0.3" radius="0.1"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+    </visual>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <collision>
+      <geometry>  
+        <cylinder length="0.3" radius="0.1"/>
+      </geometry> 
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </collision>
+  </link>
+
+  <joint name="fixed_joint2" type="fixed">  
+    <parent link="rotate_part2"/>  
+    <child link="pole2"/>  
+    <origin xyz="0 0 0.15" rpy="0.0 0.0 0"/>
+ </joint>  
+
+  <link name="plane">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.27"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/> 
+    </visual>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <collision>
+      <geometry>  
+        <cylinder length="0.05" radius="0.27"/>
+      </geometry> 
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </collision>
+  </link>
+
+  <joint name="fixed_joint3" type="fixed">  
+    <parent link="pole2"/>  
+    <child link="plane"/>  
+    <origin xyz="0 0 0.15" rpy="0.0 0.0 0"/>
+ </joint>  
+
+</robot>
+
+ 
