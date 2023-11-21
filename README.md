@@ -6,13 +6,13 @@ The aim of this project is to employ a robotic arm to hit a small ball towards a
 
 The construction of the robot arm is a crucial element of the modelling process, as the arm's structure and degree of freedom design directly impacts the dimensionality of the action in subsequent reinforcement learning tasks.
 
-<img src="Resurt-Presentation\Robot_Arm.png" width="400">
+<img src="Result_Presentation\Robot_Arm.png" width="400">
 
 As depicted in Figure, the robotic arm comprises of three degrees of freedom (DOFs). DOF1 corresponds to the rotation around the axis at the base, while DOF2 and DOF3 govern the swinging motion of the two arms.
 
 ## DDPG parameters
 
-<img src="Resurt-Presentation\Parameters.png" width="800">
+<img src="Result_Presentation\Parameters.png" width="800">
 We are utilizing the DDPG algorithm, and the specific parameters are shown in the table.
 
 ## Optimizaiton
@@ -36,10 +36,10 @@ To prevent such issues from leading to the agent becoming trapped in a local opt
 
 ## Result
 
-<img src="Resurt-Presentation\DDPG_reward_figure.png" width="500">
+<img src="Result_Presentation\DDPG_reward_figure.png" width="500">
 
 To better illustrate the effectiveness of the DDPG algorithm, we plotted the reward figure for DDPG (Episode = 500). As shown in Figure, In the first 200 episodes, the reward exhibited significant fluctuations, while the overall trend showed a steady increase. This indicates that, Because of the presence of noise, the agent continued to explore and gradually learn better strategies. After 200 episodes, the reward stabilized around 100, indicating that the reinforcement learning algorithm had converged, and the results were highly effective.
 
-<img src="Resurt-Presentation\BallVideo.gif" width="900">
+<img src="Result_Presentation\BallVideo.gif" width="900">
 
 
